@@ -39,6 +39,7 @@ const ColorForm = ({ initialData }: ColorFormProps) => {
     ? "Edit a Color"
     : "Create a new Color for your billboard";
   const action = initialData ? "save changes" : "Create";
+  const editColor = initialData ? true : false
   const toastMessage = initialData ? "Changes saved" : "Color Created";
 
   const [isLoading, setIsLoading] = useState(false);
@@ -187,9 +188,9 @@ const ColorForm = ({ initialData }: ColorFormProps) => {
             />
           </div>
 
-          <Button disabled={isLoading} className="ml-auto" type="submit">
+         {!editColor && <Button disabled={isLoading} className="ml-auto" type="submit">
             {action}
-          </Button>
+          </Button>}
         </form>
       </Form>
     </>

@@ -73,16 +73,15 @@ const UserForm = ({ initialData }: UserFormProps) => {
     form.reset(initialData);
   }, [form, initialData]);
   const onSubmit = async (d: UserFormValues) => {
+  
     const data = {
       ...d,
-      birthday: format(d.birthday, "yyyy-MM-dd"),
+      birthday: format(new Date(d.birthday), "yyyy-MM-dd"),
     };
-
+    
     try {
       setIsLoading(true);
-      if (initialData) {
-        await privateClient.put(`user/update-user/${params?.userId}`, data);
-      }
+      await privateClient.put(`user/update-user/${params?.userId}`, data);
       router.refresh();
       router.push(`/users`);
       toast.success(toastMessage);

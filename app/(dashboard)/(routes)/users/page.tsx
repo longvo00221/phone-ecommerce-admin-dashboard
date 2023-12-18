@@ -17,8 +17,9 @@ const UsersPage = () => {
     };
     fetchUserListDataFromApi();
   }, []);
-  const formattedUser: UserColumn[] = userList.map((user: any) => ({
+  const formattedUser: UserColumn[] = userList.map((user: any,i:number) => ({
     id: user.id_user,
+    stt:i + 1,
     name: user.name,
     email: user.email,
     birthday: user.birthday,

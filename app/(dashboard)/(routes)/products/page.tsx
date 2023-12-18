@@ -21,8 +21,9 @@ const ProductsPage =  () => {
     fetchData();
   }, []);
  
-  const formattedProducts: ProductColumn[] = products.map((product: any) => ({
+  const formattedProducts: ProductColumn[] = products.map((product: any,i:number) => ({
     id: product.id_product,
+    stt:i + 1,
     name: product.name,
     price: product.price,
     categories: product.categoryBrandMapping.category.name,

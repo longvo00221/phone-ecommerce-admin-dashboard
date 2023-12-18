@@ -13,13 +13,14 @@ import privateClient from "@/api/config/private.client";
 
 export type ColorColumn = {
     id: number;
+    stt:number;
     name: string;
     hex:string
 }
 
 export const Columns: ColumnDef<ColorColumn>[] = [
     {
-        accessorKey: "id",
+        accessorKey: "stt",
         header: "Id",
     },
     {
@@ -57,7 +58,7 @@ export const CellAction = ({data}: ICellAction)=>{
           setIsLoading(true);
           await privateClient.delete(`color/delete-color/${data.id}`
           );
-          router.refresh();
+          window.location.reload()
           toast.success("Color deleted!");
         } catch (error) {
           toast.error("You can't delete Color containing products");

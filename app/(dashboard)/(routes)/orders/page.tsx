@@ -27,8 +27,9 @@ const OrdersPage = () => {
 
   // Return loading state if orders are not yet fetched
   if (!orders) return
-  const formattedOrders: OrderColumn[] = orders.map((order: any) => ({
+  const formattedOrders: OrderColumn[] = orders.map((order: any,i:number) => ({
     id: order.id_order,
+    stt:i + 1,
     phone: order.phone,
     address: order.address,
     payment_method: order.payment_method,

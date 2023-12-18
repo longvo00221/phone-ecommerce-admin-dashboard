@@ -13,13 +13,14 @@ import privateClient from "@/api/config/private.client";
 
 export type BrandColumn = {
     id:number;
+    stt:number;
     name:string;
     banner:string;
 }
 
 export const Columns: ColumnDef<BrandColumn>[] = [
     {
-        accessorKey:"id",
+        accessorKey:"stt",
         header:"Id"
     },
     {
@@ -55,7 +56,7 @@ export const CellAction = ({data}:ICellAction) => {
           setIsLoading(true);
 
           await privateClient.delete(`brand/delete-brand/${data.id}`);
-          router.refresh();
+          window.location.reload()
           toast.success("Brand deleted!");
         } catch (error) {
           toast.error("You can't delete brand");

@@ -72,7 +72,7 @@ const DashboardPage = () => {
             <CardTitle>Overview</CardTitle>
           </CardHeader>
           <CardContent className="pl-2">
-            {/* <Overview data={orders} /> */}
+            <Overview data={orders} />
           </CardContent>
         </Card>
       </div>

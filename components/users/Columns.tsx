@@ -19,6 +19,7 @@ import {format} from 'date-fns'
 
 export type UserColumn = {
   id: number;
+  stt:number;
   name: string;
   email: string;
   birthday: string;
@@ -29,7 +30,7 @@ export type UserColumn = {
 
 export const Columns: ColumnDef<UserColumn>[] = [
   {
-    accessorKey: "id",
+    accessorKey: "stt",
     header: "Id",
   },
   {
@@ -93,7 +94,7 @@ export const CellAction = ({ data }: ICellAction) => {
     try {
       setIsLoading(true);
       await privateClient.delete(`user/delete-user/${data.id}`);
-      router.refresh();
+      router.push("/users");
       toast.success("User deleted!");
     } catch (error) {
       toast.error("Failed to delete User");

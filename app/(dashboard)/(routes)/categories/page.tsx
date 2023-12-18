@@ -2,7 +2,6 @@
 import privateClient from '@/api/config/private.client';
 import CategoryClient from '@/components/categories/CategoryClient';
 import { CategoryColumn } from '@/components/categories/Columns';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 
@@ -17,8 +16,9 @@ const CategoriesPage =  () => {
     handleFetchingCategoriesFromApi()
   },[])
   if(!categories) return
-  const formattedCategories: CategoryColumn[] = categories.map((category:any) =>({
+  const formattedCategories: CategoryColumn[] = categories.map((category:any,i:number) =>({
     id: category.id_category,
+    stt:i + 1,
     name: category.name,
   }))
   return (

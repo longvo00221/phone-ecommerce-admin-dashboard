@@ -17,6 +17,7 @@ import { format } from "date-fns";
 
 export type OrderColumn = {
   id: number;
+  stt:number;
   phone: number;
   address: string;
   payment_method: string;
@@ -28,7 +29,7 @@ export type OrderColumn = {
 
 export const Columns: ColumnDef<OrderColumn>[] = [
   {
-    accessorKey: "id",
+    accessorKey: "stt",
     header: "Id",
   },
   {
@@ -82,7 +83,7 @@ export const CellAction = ({ data }: ICellAction) => {
     try {
       setIsLoading(true);
       await privateClient.delete(`order/delete-order/${data.id}`);
-      router.refresh();
+      window.location.reload()
       toast.success("Order deleted!");
     } catch (error) {
       toast.error("Failed to delete Order");

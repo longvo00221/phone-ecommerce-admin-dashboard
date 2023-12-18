@@ -12,6 +12,7 @@ import privateClient from "@/api/config/private.client";
 import { priceFormat } from "@/lib/utils";
 export type ProductColumn = {
   id: number;
+  stt:number;
   name: string;
   price: number;
   original_price: number; 
@@ -26,7 +27,7 @@ export type ProductColumn = {
 
 export const Columns: ColumnDef<ProductColumn>[] = [
     {
-      accessorKey: "id",
+      accessorKey: "stt",
       header: "Id",
     },
     {
@@ -93,7 +94,7 @@ export const CellAction = ({data}: ICellAction)=>{
         try {
           setIsLoading(true);
           await privateClient.delete(`/product/delete-product/${data.id}`);
-          router.refresh();
+          window.location.reload()
           toast.success("product deleted!");
         } catch (error) {
           toast.error("Failed to delete product");

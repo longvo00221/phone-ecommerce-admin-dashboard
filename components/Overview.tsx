@@ -29,12 +29,14 @@ const Overview = ({ data }: OverviewProps) => {
           fontSize={12}
           tickLine={false}
           axisLine={false}
+
         />
         <YAxis
           stroke="#888888"
           fontSize={12}
           tickLine={false}
           axisLine={false}
+          
           tickFormatter={(value) => `${priceFormat.format(value)}`}
         />
         <Tooltip formatter={(value) => priceFormat.format(Number(value))} />

@@ -1,6 +1,5 @@
 "use client";
 
-import { redirect } from "next/navigation";
 import { useState, useEffect } from "react";
 import {CldUploadWidget} from "next-cloudinary"
 import { Button } from "./button";
@@ -20,7 +19,6 @@ const ImageUpload = ({disabled, values, onChange, onRemove}:ImageUploadProps) =>
         setIsMounted(true);
     },[])
 
-    //if(!isMounted) redirect('/');
 
     const onUpload = (res: any)=>{
         onChange(res?.info?.secure_url);

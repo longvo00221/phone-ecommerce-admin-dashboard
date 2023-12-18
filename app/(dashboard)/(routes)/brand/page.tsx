@@ -17,8 +17,9 @@ const BrandPage =  () => {
   },[])
   
   if(!brands) return
-  const formattedBrand: BrandColumn[] = brands.map((brand:any) => ({
+  const formattedBrand: BrandColumn[] = brands.map((brand:any,i:number) => ({
     id: brand.id_brand,
+    stt:i + 1,
     name: brand.name,
     banner: brand.img,
 

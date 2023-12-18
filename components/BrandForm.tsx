@@ -61,7 +61,7 @@ const BrandForm = ({ initialData }: BrandFormProps) => {
     try {
       setIsLoading(true);
       if (initialData) {
-        await privateClient.patch(
+        await privateClient.put(
           `brand/update-brand/${params?.brandId}`
         );
       } else {

@@ -123,7 +123,7 @@ const ProductForm = ({
       setIsLoading(true);
       if (initialData) {
         await privateClient.patch(
-          `product/edit-product/${params?.productId}`,
+          `product/update-product/${params?.productId}`,
           data
         );
       } else {

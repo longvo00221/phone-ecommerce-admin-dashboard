@@ -18,8 +18,9 @@ const ColorPage =  () => {
   }, []);
   
     if(!colors) return
-    const formattedColors: ColorColumn[] = colors.map((color:any) => ({
+    const formattedColors: ColorColumn[] = colors.map((color:any,i:number) => ({
         id:color.id_color,
+        stt:i + 1,
         name: color.name,
         hex: color.hex
     }))
